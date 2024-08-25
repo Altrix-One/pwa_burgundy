@@ -63,6 +63,7 @@ app_license = "mit"
 # 	"methods": "pwa_build.utils.jinja_methods",
 # 	"filters": "pwa_build.utils.jinja_filters"
 # }
+after_migrate = "pwa_build.after_migrate.AfterMigrate"
 
 # Installation
 # ------------
@@ -227,3 +228,4 @@ app_license = "mit"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+website_route_rules = [{'from_route': '/pwa/<path:app_path>', 'to_route': 'pwa'},]
