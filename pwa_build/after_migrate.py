@@ -22,7 +22,7 @@ class AfterMigrate:
 					frappe.clear_cache()
 				# print each progress bar on new line
 				print()
-							
+
 def import_forms(file_path):
 	try:
 		docs = import_file.read_doc_from_file(file_path)
@@ -43,6 +43,10 @@ def import_forms(file_path):
 					pass
 			if stored_hash and stored_hash == calculated_hash:
 				continue
+
+			#check for doctype
+			if not frappe.db.get_value("DocType", doc["doctype_name"]):
+				frappe.throw(f"Invalid DocType: {doc['doctype_name']}")
 
 			#delete existing form if it exists
 			if frappe.db.exists("PWA Form", {"form_name":doc["form_name"],"doctype_name":doc["doctype_name"]}):
