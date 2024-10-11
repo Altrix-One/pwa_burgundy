@@ -1,0 +1,172 @@
+{
+    "form_name": "Stock Entry",
+    "name": "mefmbipk15",
+    "doctype_name": "Stock Entry",
+    "is_submittable": 1,
+    "pwa_form_fields": [
+        {
+            "doctype": "DocField",
+            "name": "naming_series",
+            "fieldname": "naming_series",
+            "label": "Series",
+            "fieldtype": "Select",
+            "options": "MAT-STE-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "stock_entry_type",
+            "fieldname": "stock_entry_type",
+            "label": "Stock Entry Type",
+            "fieldtype": "Link",
+            "options": "Stock Entry Type",
+            "reqd": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "purpose",
+            "fieldname": "purpose",
+            "label": "Purpose",
+            "fieldtype": "Select",
+            "options": "Material Issue\nMaterial Receipt\nMaterial Transfer\nMaterial Transfer for Manufacture\nMaterial Consumption for Manufacture\nManufacture\nRepack\nSend to Subcontractor\nDisassemble",
+            "read_only": 1,
+            "reqd": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "company",
+            "fieldname": "company",
+            "label": "Company",
+            "fieldtype": "Link",
+            "options": "Company",
+            "reqd": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "work_order",
+            "fieldname": "work_order",
+            "label": "Work Order",
+            "fieldtype": "Link",
+            "options": "Work Order"
+        },
+        {
+            "doctype": "DocField",
+            "name": "posting_date",
+            "fieldname": "posting_date",
+            "label": "Posting Date",
+            "fieldtype": "Date",
+            "default": "Today",
+            "reqd": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "posting_time",
+            "fieldname": "posting_time",
+            "label": "Posting Time",
+            "fieldtype": "Time"
+        },
+        {
+            "doctype": "DocField",
+            "name": "from_warehouse",
+            "fieldname": "from_warehouse",
+            "label": "Default Source Warehouse",
+            "fieldtype": "Link",
+            "options": "Warehouse"
+        },
+        {
+            "doctype": "DocField",
+            "name": "to_warehouse",
+            "fieldname": "to_warehouse",
+            "label": "Default Target Warehouse",
+            "fieldtype": "Link",
+            "options": "Warehouse"
+        },
+        {
+            "doctype": "DocField",
+            "name": "items",
+            "fieldname": "items",
+            "label": "Items",
+            "fieldtype": "Table",
+            "options": "Stock Entry Detail",
+            "reqd": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "remarks",
+            "fieldname": "remarks",
+            "label": "Remarks",
+            "fieldtype": "Text"
+        },
+        {
+            "doctype": "DocField",
+            "name": "total_incoming_value",
+            "fieldname": "total_incoming_value",
+            "label": "Total Incoming Value (Receipt)",
+            "fieldtype": "Currency",
+            "read_only": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "total_outgoing_value",
+            "fieldname": "total_outgoing_value",
+            "label": "Total Outgoing Value (Consumption)",
+            "fieldtype": "Currency",
+            "read_only": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "value_difference",
+            "fieldname": "value_difference",
+            "label": "Total Value Difference (Incoming - Outgoing)",
+            "fieldtype": "Currency",
+            "read_only": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "additional_costs",
+            "fieldname": "additional_costs",
+            "label": "Additional Costs",
+            "fieldtype": "Table",
+            "options": "Landed Cost Taxes and Charges"
+        },
+        {
+            "doctype": "DocField",
+            "name": "supplier",
+            "fieldname": "supplier",
+            "label": "Supplier",
+            "fieldtype": "Link",
+            "options": "Supplier"
+        },
+        {
+            "doctype": "DocField",
+            "name": "supplier_address",
+            "fieldname": "supplier_address",
+            "label": "Supplier Address",
+            "fieldtype": "Link",
+            "options": "Address"
+        },
+        {
+            "doctype": "DocField",
+            "name": "project",
+            "fieldname": "project",
+            "label": "Project",
+            "fieldtype": "Link",
+            "options": "Project"
+        },
+        {
+            "doctype": "DocField",
+            "name": "scan_barcode",
+            "fieldname": "scan_barcode",
+            "label": "Scan Barcode",
+            "fieldtype": "Data"
+        },
+        {
+            "doctype": "DocField",
+            "name": "per_transferred",
+            "fieldname": "per_transferred",
+            "label": "Per Transferred",
+            "fieldtype": "Percent",
+            "read_only": 1
+        }
+    ]
+}

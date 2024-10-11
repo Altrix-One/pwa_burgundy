@@ -1,9 +1,9 @@
 [project]
-name = "pwa_build"
+name = "pwa_burgundy"
 authors = [
     { name = "Aerele Technologies", email = "support@aerele.in"}
 ]
-description = "Builded pwa app for pwa builder"
+description = "Builded frontend app for frontend builder"
 requires-python = ">=3.10"
 readme = "README.md"
 dynamic = ["version"]

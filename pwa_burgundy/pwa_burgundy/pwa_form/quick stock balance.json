@@ -1,0 +1,89 @@
+{
+    "form_name": "Quick Stock Balance",
+    "name": "oj8jki62gb",
+    "doctype_name": "Quick Stock Balance",
+    "is_submittable": 0,
+    "pwa_form_fields": [
+        {
+            "doctype": "DocField",
+            "name": "warehouse",
+            "fieldname": "warehouse",
+            "label": "Warehouse",
+            "fieldtype": "Link",
+            "options": "Warehouse",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "date",
+            "fieldname": "date",
+            "label": "Date",
+            "fieldtype": "Date",
+            "default": "Today",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "item_barcode",
+            "fieldname": "item_barcode",
+            "label": "Item Barcode",
+            "fieldtype": "Data",
+            "options": "barcode"
+        },
+        {
+            "doctype": "DocField",
+            "name": "item",
+            "fieldname": "item",
+            "label": "Item Code",
+            "fieldtype": "Link",
+            "options": "Item",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "item_name",
+            "fieldname": "item_name",
+            "label": "Item Name",
+            "fieldtype": "Data",
+            "read_only": 1,
+            "fetch_from": "item.item_name"
+        },
+        {
+            "doctype": "DocField",
+            "name": "item_description",
+            "fieldname": "item_description",
+            "label": "Item Description",
+            "fieldtype": "Small Text",
+            "read_only": 1,
+            "fetch_from": "item.description"
+        },
+        {
+            "doctype": "DocField",
+            "name": "qty",
+            "fieldname": "qty",
+            "label": "Available Quantity",
+            "fieldtype": "Float",
+            "read_only": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "value",
+            "fieldname": "value",
+            "label": "Stock Value",
+            "fieldtype": "Currency",
+            "read_only": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "image",
+            "fieldname": "image",
+            "label": "Image View",
+            "fieldtype": "Image",
+            "options": "image",
+            "print_hide": 1
+        }
+    ]
+}
