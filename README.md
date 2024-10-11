@@ -1,6 +1,6 @@
 ## PWA-Burgundy
 
-Builded frontend app for frontend builder
+Stock Entry PWA application. 
 
 #### License
 
