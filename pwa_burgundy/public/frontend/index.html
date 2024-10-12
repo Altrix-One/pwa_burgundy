@@ -3,11 +3,27 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" href="/assets/pwa_burgundy/frontend/favicon.png" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <title>Frappe UI App</title>
     <script type="module" crossorigin src="/assets/pwa_burgundy/frontend/assets/index-W_lnXAtG.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/pwa_burgundy/frontend/assets/index-BOqt-JOb.css">
-  <link rel="manifest" href="/assets/pwa_burgundy/frontend/manifest.webmanifest"><script id="vite-plugin-frontend:register-sw" src="/assets/pwa_burgundy/frontend/registerSW.js"></script></head>
+    <link rel="manifest" href="/assets/pwa_burgundy/frontend/manifest.webmanifest">
+    <script id="vite-plugin-frontend:register-sw" src="/assets/pwa_burgundy/frontend/registerSW.js"></script>
+    
+    <script>
+      // Optional: Automatically reset zoom after 3 seconds
+      let zoomTimeout;
+      
+      window.addEventListener('resize', function() {
+        clearTimeout(zoomTimeout);
+        zoomTimeout = setTimeout(function() {
+          document.body.style.transform = 'scale(1)';
+          document.body.style.transformOrigin = 'top left';
+        }, 3000); // Reset zoom after 3 seconds
+      });
+    </script>
+    
+  </head>
   <body>
     <div id="app"></div>
     <div id="modals"></div>
