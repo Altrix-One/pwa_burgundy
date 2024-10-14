@@ -1,0 +1,154 @@
+{
+    "form_name": "Quality Inspection",
+    "name": "oj8jki62gb",
+    "doctype_name": "Quality Inspection",
+    "is_submittable": 1,
+    "pwa_form_fields": [
+        {
+            "doctype": "DocField",
+            "name": "naming_series",
+            "fieldname": "naming_series",
+            "label": "Series",
+            "fieldtype": "Select",
+            "options": "MAT-QA-.YYYY.-",
+            "reqd": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "report_date",
+            "fieldname": "report_date",
+            "label": "Report Date",
+            "fieldtype": "Date",
+            "default": "Today",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "inspection_type",
+            "fieldname": "inspection_type",
+            "label": "Inspection Type",
+            "fieldtype": "Select",
+            "options": "\nIncoming\nOutgoing\nIn Process",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "reference_type",
+            "fieldname": "reference_type",
+            "label": "Reference Type",
+            "fieldtype": "Select",
+            "options": "\nPurchase Receipt\nPurchase Invoice\nSubcontracting Receipt\nDelivery Note\nSales Invoice\nStock Entry\nJob Card",
+            "reqd": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "reference_name",
+            "fieldname": "reference_name",
+            "label": "Reference Name",
+            "fieldtype": "Dynamic Link",
+            "options": "reference_type",
+            "reqd": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "item_code",
+            "fieldname": "item_code",
+            "label": "Item Code",
+            "fieldtype": "Link",
+            "options": "Item",
+            "reqd": 1,
+            "in_list_view": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "item_serial_no",
+            "fieldname": "item_serial_no",
+            "label": "Item Serial No",
+            "fieldtype": "Link",
+            "options": "Serial No"
+        },
+        {
+            "doctype": "DocField",
+            "name": "batch_no",
+            "fieldname": "batch_no",
+            "label": "Batch No",
+            "fieldtype": "Link",
+            "options": "Batch"
+        },
+        {
+            "doctype": "DocField",
+            "name": "sample_size",
+            "fieldname": "sample_size",
+            "label": "Sample Size",
+            "fieldtype": "Float",
+            "reqd": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "item_name",
+            "fieldname": "item_name",
+            "label": "Item Name",
+            "fieldtype": "Data",
+            "read_only": 1,
+            "fetch_from": "item_code.item_name"
+        },
+        {
+            "doctype": "DocField",
+            "name": "description",
+            "fieldname": "description",
+            "label": "Description",
+            "fieldtype": "Small Text",
+            "fetch_from": "item_code.description"
+        },
+        {
+            "doctype": "DocField",
+            "name": "status",
+            "fieldname": "status",
+            "label": "Status",
+            "fieldtype": "Select",
+            "options": "\nAccepted\nRejected",
+            "reqd": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "inspected_by",
+            "fieldname": "inspected_by",
+            "label": "Inspected By",
+            "fieldtype": "Link",
+            "options": "User",
+            "reqd": 1
+        },
+        {
+            "doctype": "DocField",
+            "name": "verified_by",
+            "fieldname": "verified_by",
+            "label": "Verified By",
+            "fieldtype": "Data"
+        },
+        {
+            "doctype": "DocField",
+            "name": "remarks",
+            "fieldname": "remarks",
+            "label": "Remarks",
+            "fieldtype": "Text"
+        },
+        {
+            "doctype": "DocField",
+            "name": "quality_inspection_template",
+            "fieldname": "quality_inspection_template",
+            "label": "Quality Inspection Template",
+            "fieldtype": "Link",
+            "options": "Quality Inspection Template"
+        },
+        {
+            "doctype": "DocField",
+            "name": "readings",
+            "fieldname": "readings",
+            "label": "Readings",
+            "fieldtype": "Table",
+            "options": "Quality Inspection Reading"
+        }
+    ]
+}

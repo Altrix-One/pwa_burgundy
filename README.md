@@ -1,6 +1,6 @@
-## Pwa Build
+## PWA-Burgundy
 
-Builded pwa app for pwa builder
+Builded frontend app for frontend builder
 
 #### License
 
