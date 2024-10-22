@@ -36,6 +36,11 @@
 	  "reqd": 1
 	 },
 	 {
+		"fieldname": "item_barcode",
+		"fieldtype": "Data",
+		"label": "Item Barcode"
+		},
+	 {
 	  "fieldname": "fields_section",
 	  "fieldtype": "Section Break",
 	  "label": "Fields"

@@ -71,4 +71,10 @@ frappe.ui.form.ControlBarcode = class ControlBarcode extends frappe.ui.form.Cont
         return options;
     }
 
+    item_barcode (frm) {
+		frappe.flags.last_updated_element = "item_barcode";
+		frm.trigger("get_stock_and_item_details");
+		frm.trigger("make_custom_stock_report_button");
+	}
+
 }
