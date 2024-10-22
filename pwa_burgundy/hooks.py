@@ -227,4 +227,6 @@ after_migrate = "pwa_burgundy.after_migrate.AfterMigrate"
 # 	"Logging DocType Name": 30  # days to retain logs
 # }
 
+#Good day World
+
 website_route_rules = [{'from_route': '/frontend/<path:app_path>', 'to_route': 'frontend'},]
