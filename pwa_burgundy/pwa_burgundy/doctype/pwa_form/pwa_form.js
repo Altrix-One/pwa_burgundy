@@ -3,29 +3,29 @@
 
 // frappe.ui.form.on("PWA Form", {
 // 	refresh(frm) {
-frappe.ui.form.on('PWA Form', {
+frappe.ui.form.on('Stock Entry', {
     refresh: function(frm) {
         // Initialize the BarcodeScanner
         const scanner = new erpnext.utils.BarcodeScanner({
             on_scan: function(barcode) {
-                // Automatically add or update the item in the table
+                // Call the function to add or update the item in the "Items" table
                 add_or_update_item(frm, barcode);
             }
         });
 
-        // Trigger the barcode scanner when user selects the barcode field
+        // Start barcode scanning when the user focuses on the barcode field
         frm.fields_dict.scan_barcode.$input.on('focus', function() {
             scanner.start();
         });
-        
-        // Stop scanning when field is out of focus
+
+        // Stop scanning when the barcode field loses focus
         frm.fields_dict.scan_barcode.$input.on('blur', function() {
             scanner.stop();
         });
     }
 });
 
-// Function to add or update an item in the Items table
+// Function to add or update an item in the "Items" table
 function add_or_update_item(frm, barcode) {
     frappe.call({
         method: "erpnext.stock.get_item_details.get_item_by_barcode",
@@ -38,11 +38,11 @@ function add_or_update_item(frm, barcode) {
                 let existing_row = frm.doc.items.find(row => row.item_code === item_code);
 
                 if (existing_row) {
-                    // If item already exists, increase the quantity
+                    // Item already exists, increase the quantity
                     frappe.model.set_value(existing_row.doctype, existing_row.name, 'qty', existing_row.qty + 1);
                     frappe.show_alert({message: `Updated quantity for item: ${item_code}`, indicator: 'green'});
                 } else {
-                    // If item doesn't exist, add a new row
+                    // Item doesn't exist, add a new row
                     let new_row = frm.add_child('items');
                     frappe.model.set_value(new_row.doctype, new_row.name, 'item_code', item_code);
                     frappe.model.set_value(new_row.doctype, new_row.name, 'qty', 1);
@@ -56,5 +56,6 @@ function add_or_update_item(frm, barcode) {
         }
     });
 }
+
 // 	},
 // });
