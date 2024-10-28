@@ -8,9 +8,8 @@ frappe.ui.form.on('PWA Form', {
         // Initialize the BarcodeScanner
         const scanner = new erpnext.utils.BarcodeScanner({
             on_scan: function(barcode) {
-                // Automatically populate the barcode field with the scanned value
-                frm.set_value('scan_barcode', barcode);
-                frappe.show_alert({message: `Barcode scanned: ${barcode}`, indicator: 'green'});
+                // Automatically add or update the item in the table
+                add_or_update_item(frm, barcode);
             }
         });
 
@@ -26,5 +25,36 @@ frappe.ui.form.on('PWA Form', {
     }
 });
 
+// Function to add or update an item in the Items table
+function add_or_update_item(frm, barcode) {
+    frappe.call({
+        method: "erpnext.stock.get_item_details.get_item_by_barcode",
+        args: {
+            barcode: barcode
+        },
+        callback: function(response) {
+            if (response.message) {
+                let item_code = response.message.item_code;
+                let existing_row = frm.doc.items.find(row => row.item_code === item_code);
+
+                if (existing_row) {
+                    // If item already exists, increase the quantity
+                    frappe.model.set_value(existing_row.doctype, existing_row.name, 'qty', existing_row.qty + 1);
+                    frappe.show_alert({message: `Updated quantity for item: ${item_code}`, indicator: 'green'});
+                } else {
+                    // If item doesn't exist, add a new row
+                    let new_row = frm.add_child('items');
+                    frappe.model.set_value(new_row.doctype, new_row.name, 'item_code', item_code);
+                    frappe.model.set_value(new_row.doctype, new_row.name, 'qty', 1);
+                    frappe.model.set_value(new_row.doctype, new_row.name, 'barcode', barcode);
+                    frm.refresh_field('items');
+                    frappe.show_alert({message: `Added new item: ${item_code}`, indicator: 'green'});
+                }
+            } else {
+                frappe.msgprint(__('Item not found for barcode {0}', [barcode]));
+            }
+        }
+    });
+}
 // 	},
 // });
