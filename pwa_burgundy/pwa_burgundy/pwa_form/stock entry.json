@@ -86,7 +86,8 @@
             "name": "scan_barcode",
             "fieldname": "scan_barcode",
             "label": "Scan Barcode",
-            "fieldtype": "Data"
+            "fieldtype": "Data",
+            "options": "Barcode"
         },
         {
             "doctype": "DocField",
