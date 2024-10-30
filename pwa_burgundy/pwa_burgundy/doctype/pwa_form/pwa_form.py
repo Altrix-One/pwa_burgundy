@@ -1,7 +1,7 @@
 # Copyright (c) 2024, Aerele Technologies Private Limited and contributors
 # For license information, please see license.txt
 # import frappe
-import frappe
+from frappe.model.document import Document
 class PWAForm(Document):
     def validate(self):
         if not frappe.db.exists("Item", {"barcode": self.scan_barcode}):
