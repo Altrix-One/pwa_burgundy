@@ -75,10 +75,10 @@
 	  "reqd": 1
 	 },
 	 {
-	  "fields": [{"fieldname": "scan_barcode",
-	  "label": "Scan Barcode",
+	  "fieldname": "scan_barcode",
 	  "fieldtype": "Data",
-	  "in_list_view": 1,"reqd": 0}]}
+	  "label": "Scan Barcode"
+	}
 	],
 	"index_web_pages_for_search": 1,
 	"links": [],
